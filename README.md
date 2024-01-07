@@ -19,4 +19,4 @@
 - http://localhost:8080/swagger-ui/index.html
 
 ## Executable jar
-- https://github.com/kakaopayseccoding-server/202312-skesswswkk-naver.com/releases/tag/v0.0.1
+- https://github.com/kakaopayseccoding-server/202312-skesswswkk-naver.com/releases
