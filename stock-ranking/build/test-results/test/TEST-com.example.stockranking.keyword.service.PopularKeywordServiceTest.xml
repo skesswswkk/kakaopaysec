@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.stockranking.keyword.service.PopularKeywordServiceTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2024-01-07T14:23:17" hostname="kakaovxui-MacBookPro.local" time="0.91">
+  <properties/>
+  <testcase name="저장 성공" classname="com.example.stockranking.keyword.service.PopularKeywordServiceTest" time="0.055"/>
+  <testcase name="낙관적 락 오류 발생시 재시도 3회" classname="com.example.stockranking.keyword.service.PopularKeywordServiceTest" time="0.431"/>
+  <testcase name="키 중복 오류 발생시 재시도 3회" classname="com.example.stockranking.keyword.service.PopularKeywordServiceTest" time="0.422"/>
+  <system-out><![CDATA[23:23:14.144 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [PopularKeywordServiceTest]: using SpringBootContextLoader
+23:23:14.147 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.example.stockranking.keyword.service.PopularKeywordServiceTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+23:23:14.147 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.example.stockranking.keyword.service.PopularKeywordServiceTest]: PopularKeywordServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+23:23:14.159 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using ContextCustomizers for test class [PopularKeywordServiceTest]: [DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, Customizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer, TestRestTemplateContextCustomizer, WebTestClientContextCustomizer]
+23:23:14.196 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [/Users/kakaovx/Downloads/stock-ranking/build/classes/java/main/com/example/stockranking/StockRankingApplication.class]
+23:23:14.198 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.example.stockranking.StockRankingApplication for test class com.example.stockranking.keyword.service.PopularKeywordServiceTest
+23:23:14.235 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners for test class [PopularKeywordServiceTest]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, EventPublishingTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener, ResetMocksTestExecutionListener]
+23:23:14.236 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: class [PopularKeywordServiceTest], class annotated with @DirtiesContext [false] with mode [null]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.4)
+
+2024-01-07T23:23:14.394+09:00  INFO 19793 --- [    Test worker] c.e.s.k.s.PopularKeywordServiceTest      : Starting PopularKeywordServiceTest using Java 17.0.7 with PID 19793 (started by kakaovx in /Users/kakaovx/Downloads/stock-ranking)
+2024-01-07T23:23:14.395+09:00  INFO 19793 --- [    Test worker] c.e.s.k.s.PopularKeywordServiceTest      : No active profile set, falling back to 1 default profile: "default"
+2024-01-07T23:23:14.458+09:00  WARN 19793 --- [    Test worker] o.s.c.annotation.AnnotationTypeMapping   : Support for convention-based annotation attribute overrides is deprecated and will be removed in Spring Framework 6.1. Please annotate the following attributes in @org.springframework.retry.annotation.EnableRetry with appropriate @AliasFor declarations: [proxyTargetClass]
+2024-01-07T23:23:14.945+09:00  INFO 19793 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-01-07T23:23:15.021+09:00  INFO 19793 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 72 ms. Found 1 JPA repository interfaces.
+2024-01-07T23:23:15.698+09:00  INFO 19793 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-01-07T23:23:15.718+09:00  INFO 19793 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2024-01-07T23:23:15.776+09:00  INFO 19793 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-01-07T23:23:15.855+09:00  INFO 19793 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:balance user=SA
+2024-01-07T23:23:15.856+09:00  INFO 19793 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-01-07T23:23:15.871+09:00  INFO 19793 --- [    Test worker] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2024-01-07T23:23:16.096+09:00 DEBUG 19793 --- [    Test worker] org.hibernate.SQL                        : 
+    
+    drop table if exists keyword_count cascade 
+Hibernate: 
+    
+    drop table if exists keyword_count cascade 
+2024-01-07T23:23:16.100+09:00 DEBUG 19793 --- [    Test worker] org.hibernate.SQL                        : 
+    
+    create table keyword_count (
+       keyword varchar(255) not null,
+        keyword_count bigint,
+        primary key (keyword)
+    )
+Hibernate: 
+    
+    create table keyword_count (
+       keyword varchar(255) not null,
+        keyword_count bigint,
+        primary key (keyword)
+    )
+2024-01-07T23:23:16.103+09:00  INFO 19793 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-01-07T23:23:16.108+09:00  INFO 19793 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-01-07T23:23:17.677+09:00  INFO 19793 --- [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:balance'
+2024-01-07T23:23:17.715+09:00  INFO 19793 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-01-07T23:23:17.770+09:00  INFO 19793 --- [    Test worker] c.e.s.k.s.PopularKeywordServiceTest      : Started PopularKeywordServiceTest in 3.517 seconds (process running for 4.055)
+2024-01-07T23:23:18.281+09:00 ERROR 19793 --- [    Test worker] c.e.s.k.service.PopularKeywordService    : 종목 카운트 업데이트에 실패했습니다. keywordCountMap: {}
+
+org.springframework.orm.ObjectOptimisticLockingFailureException: null
+
+2024-01-07T23:23:18.708+09:00 ERROR 19793 --- [    Test worker] c.e.s.k.service.PopularKeywordService    : 종목 카운트 업데이트에 실패했습니다. keywordCountMap: {}
+
+org.springframework.dao.DataIntegrityViolationException: null
+
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

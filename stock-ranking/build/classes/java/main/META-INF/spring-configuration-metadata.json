@@ -1,0 +1,17 @@
+{
+  "groups": [
+    {
+      "name": "stock",
+      "type": "com.example.stockranking.stock.config.StockConfig",
+      "sourceType": "com.example.stockranking.stock.config.StockConfig"
+    }
+  ],
+  "properties": [
+    {
+      "name": "stock.items",
+      "type": "java.util.List<com.example.stockranking.stock.config.StockConfig$StockItem>",
+      "sourceType": "com.example.stockranking.stock.config.StockConfig"
+    }
+  ],
+  "hints": []
+}
