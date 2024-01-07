@@ -1,13 +1,22 @@
-# 카카오페이증권 과제평가
+# 실시간 주식 순위 정보 서비스
 
-<br>
-메일로 송부된, [카카오페이증권 과제]를 확인해서 이곳 Github 에 소스를 올려주시면 됩니다.
-<br>
-<br>
+## 프로젝트 환경
 
-과제 기술 제약사항에 있는 **[“내용을 작성하여 readme.md” 파일에 첨부 해주세요.]**  에서의 redeme.md 는 해당 README.md 입니다.
-<br>
-<br>
-_**본 내용을 지우고, 여기에 기술하시면 됩니다.**_
+* Java 17
+* Gradle 7.6.1
+* Spring Boot 3.0.4
 
-감사합니다.
+## 라이브러리
+
+- webclient - Non-Blocking 방식 외부 API 정보 요청
+- caffeine - 로컬 캐시 클라이언트
+- resilience4j - Circuit Breaker, Retry 기능
+- guava - AtomicLongMap 사용
+- springdoc - API 문서 생성 자동화
+- spring-retry - 여러 대의 서버로 분산 처리시 발생할 수 있는 키 중복 오류, 낙관적 락 오류 발생시 재시도
+
+## API 명세
+- http://localhost:8080/swagger-ui/index.html
+
+## Executable jar
+- https://github.com/kakaopayseccoding-server/202312-skesswswkk-naver.com/releases/tag/v0.0.1

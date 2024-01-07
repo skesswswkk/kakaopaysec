@@ -1,0 +1,307 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:balance
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+        default_batch_fetch_size: 100
+        show_sql: true
+        jdbc:
+          batch_size: 1000
+        order_updates: true
+        order_inserts: true
+    open-in-view: false
+
+springdoc:
+  swagger-ui:
+    operationsSorter: method
+    disable-swagger-default-url: true
+    display-request-duration: true
+  api-docs:
+    path: /api-docs
+  default-consumes-media-type: application/json
+  default-produces-media-type: application/json
+  paths-to-match:
+    - /api/**
+
+logging:
+  level:
+    com.example.blogapi: DEBUG
+    org.hibernate.SQL: debug
+    reactor.netty.http.client: DEBUG
+
+resilience4j.circuitbreaker:
+  circuit-breaker-aspect-order: 1
+  configs:
+    default:
+      registerHealthIndicator: true
+      slidingWindowSize: 10
+      minimumNumberOfCalls: 10
+      permittedNumberOfCallsInHalfOpenState: 2
+      automaticTransitionFromOpenToHalfOpenEnabled: true
+      waitDurationInOpenState: 10s
+      failureRateThreshold: 50
+      slowCallDurationThreshold: 5000ms
+
+resilience4j.retry:
+  retry-aspect-order: 2
+  configs:
+    default:
+      maxAttempts: 3
+      waitDuration: 1000
+
+stock:
+  items:
+    - code: "5930"
+      name: "삼성전자"
+    - code: "373220"
+      name: "LG에너지솔루션"
+    - code: "660"
+      name: "SK하이닉스"
+    - code: "207940"
+      name: "삼성바이오로직스"
+    - code: "5935"
+      name: "삼성전자우"
+    - code: "51910"
+      name: "LG화학"
+    - code: "6400"
+      name: "삼성SDI"
+    - code: "35420"
+      name: "NAVER"
+    - code: "5380"
+      name: "현대차"
+    - code: "35720"
+      name: "카카오"
+    - code: "270"
+      name: "기아"
+    - code: "68270"
+      name: "셀트리온"
+    - code: "28260"
+      name: "삼성물산"
+    - code: "5490"
+      name: "POSCO홀딩스"
+    - code: "105560"
+      name: "KB금융"
+    - code: "12330"
+      name: "현대모비스"
+    - code: "96770"
+      name: "SK이노베이션"
+    - code: "55550"
+      name: "신한지주"
+    - code: "34730"
+      name: "SK"
+    - code: "66570"
+      name: "LG전자"
+    - code: "323410"
+      name: "카카오뱅크"
+    - code: "15760"
+      name: "한국전력"
+    - code: "34020"
+      name: "두산에너빌리티"
+    - code: "3550"
+      name: "LG"
+    - code: "259960"
+      name: "크래프톤"
+    - code: "3670"
+      name: "포스코케미칼"
+    - code: "32830"
+      name: "삼성생명"
+    - code: "329180"
+      name: "현대중공업"
+    - code: "11200"
+      name: "HMM"
+    - code: "86790"
+      name: "하나금융지주"
+    - code: "51900"
+      name: "LG생활건강"
+    - code: "17670"
+      name: "SK텔레콤"
+    - code: "33780"
+      name: "KT&G"
+    - code: "10130"
+      name: "고려아연"
+    - code: "10950"
+      name: "S-Oil"
+    - code: "9150"
+      name: "삼성전기"
+    - code: "18260"
+      name: "삼성에스디에스"
+    - code: "30200"
+      name: "KT"
+    - code: "3490"
+      name: "대한항공"
+    - code: "810"
+      name: "삼성화재"
+    - code: "302440"
+      name: "SK바이오사이언스"
+    - code: "377300"
+      name: "카카오페이"
+    - code: "9830"
+      name: "한화솔루션"
+    - code: "316140"
+      name: "우리금융지주"
+    - code: "36570"
+      name: "엔씨소프트"
+    - code: "11070"
+      name: "LG이노텍"
+    - code: "352820"
+      name: "하이브"
+    - code: "90430"
+      name: "아모레퍼시픽"
+    - code: "24110"
+      name: "기업은행"
+    - code: "361610"
+      name: "SK아이이테크놀로지"
+    - code: "86280"
+      name: "현대글로비스"
+    - code: "9540"
+      name: "한국조선해양"
+    - code: "97950"
+      name: "CJ제일제당"
+    - code: "11170"
+      name: "롯데케미칼"
+    - code: "402340"
+      name: "SK스퀘어"
+    - code: "326030"
+      name: "SK바이오팜"
+    - code: "34220"
+      name: "LG디스플레이"
+    - code: "251270"
+      name: "넷마블"
+    - code: "383220"
+      name: "F&F"
+    - code: "18880"
+      name: "한온시스템"
+    - code: "35250"
+      name: "강원랜드"
+    - code: "47810"
+      name: "한국항공우주"
+    - code: "69500"
+      name: "KODEX 200"
+    - code: "32640"
+      name: "LG유플러스"
+    - code: "10140"
+      name: "삼성중공업"
+    - code: "88980"
+      name: "맥쿼리인프라"
+    - code: "720"
+      name: "현대건설"
+    - code: "11790"
+      name: "SKC"
+    - code: "161390"
+      name: "한국타이어앤테크놀로지"
+    - code: "21240"
+      name: "코웨이"
+    - code: "267250"
+      name: "HD현대"
+#    - code: "60"
+#      name: "메리츠화재"
+    - code: "4020"
+      name: "현대제철"
+    - code: "5830"
+      name: "DB손해보험"
+    - code: "28050"
+      name: "삼성엔지니어링"
+    - code: "10620"
+      name: "현대미포조선"
+    - code: "271560"
+      name: "오리온"
+    - code: "100"
+      name: "유한양행"
+    - code: "6800"
+      name: "미래에셋증권"
+    - code: "180640"
+      name: "한진칼"
+    - code: "78930"
+      name: "GS"
+    - code: "4990"
+      name: "롯데지주"
+    - code: "11780"
+      name: "금호석유"
+    - code: "138040"
+      name: "메리츠금융지주"
+    - code: "137310"
+      name: "에스디바이오센서"
+    - code: "36460"
+      name: "한국가스공사"
+    - code: "128940"
+      name: "한미약품"
+    - code: "371460"
+      name: "TIGER 차이나전기차SOLACTIVE"
+    - code: "29780"
+      name: "삼성카드"
+    - code: "12450"
+      name: "한화에어로스페이스"
+    - code: "3410"
+      name: "쌍용C&E"
+    - code: "71050"
+      name: "한국금융지주"
+    - code: "20150"
+      name: "일진머티리얼즈"
+    - code: "5940"
+      name: "NH투자증권"
+    - code: "241560"
+      name: "두산밥캣"
+    - code: "307950"
+      name: "현대오토에버"
+    - code: "5387"
+      name: "현대차2우B"
+#    - code: "8560"
+#      name: "메리츠증권"
+    - code: "16360"
+      name: "삼성증권"
+    - code: "47050"
+      name: "포스코인터내셔널"
+    - code: "1450"
+      name: "현대해상"
+    - code: "282330"
+      name: "BGF리테일"
+    - code: "10060"
+      name: "OCI"
+    - code: "28670"
+      name: "팬오션"
+    - code: "2790"
+      name: "아모레G"
+    - code: "139480"
+      name: "이마트"
+    - code: "272210"
+      name: "한화시스템"
+    - code: "120"
+      name: "CJ대한통운"
+    - code: "23530"
+      name: "롯데쇼핑"
+    - code: "52690"
+      name: "한전기술"
+    - code: "8930"
+      name: "한미사이언스"
+    - code: "8770"
+      name: "호텔신라"
+    - code: "64350"
+      name: "현대로템"
+    - code: "112610"
+      name: "씨에스윈드"
+    - code: "2380"
+      name: "KCC"
+    - code: "6360"
+      name: "GS건설"
+    - code: "7070"
+      name: "GS리테일"
+    - code: "14680"
+      name: "한솔케미칼"
+    - code: "30000"
+      name: "제일기획"
+    - code: "26960"
+      name: "동서"
